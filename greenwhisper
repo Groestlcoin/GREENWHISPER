@@ -13,7 +13,7 @@ echo '            /######  /#######  /######## /######## /##   /##
           |  ######/| ##  | ##| ########| ########| ## \  ##
            \______/ |__/  |__/|________/|________/|__/  \__/
 
- /##      /## /##   /## /######  /######  /#######  /######## /####### 
+ /##      /## /##   /## /######  /######  /#######  /######## /#######
 | ##  /# | ##| ##  | ##|_  ##_/ /##__  ##| ##__  ##| ##_____/| ##__  ##
 | ## /###| ##| ##  | ##  | ##  | ##  \__/| ##  \ ##| ##      | ##  \ ##
 | ##/## ## ##| ########  | ##  |  ###### | #######/| #####   | #######/
@@ -91,8 +91,8 @@ printf '\n    [*] Extracting ASCII words, hostnames and domains, piping to: "out
 strings $1 | egrep "^(([a-zA-Z0-9]|[a-zA-Z0-9][a-zA-Z0-9\-]*[a-zA-Z0-9])\.)*([A-Za-z0-9]|[A-Za-z0-9][A-Za-z0-9\-]*[A-Za-z0-9])$" > output/ascii_strings
 printf '\n    [*] Extracting IPV4 addresses, piping to: "output/ipv4_strings"'
 strings $1 | egrep "^(([0-9]|[1-9][0-9]|1[0-9]{2}|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9]{2}|2[0-4][0-9]|25[0-5])$" > output/ipv4_strings
-printf '\n    [*] Extracting Bitcoin addresses, piping to: "output/bitcoin_addresses"'
-strings $1 | egrep "^[13][a-km-zA-HJ-NP-Z0-9]{26,33}$" > output/bitcoin_addresses
+printf '\n    [*] Extracting Groestlcoin addresses, piping to: "output/groestlcoin_addresses"'
+strings $1 | egrep "^(grs|[F3])[a-km-zA-HJ-NP-Z0-9]{26,44}$" > output/groestlcoin_addresses
 printf '\n    [*] Extracting integers, this includes hexidecimal strings, piping to: "output/integers"'
 strings $1 | egrep "^[-+]?\d+$" > output/integers
 printf '\n    [*] Extracting email addresses, piping to: "output/email_addresses"'
